@@ -1,0 +1,10 @@
+[
+"codelite",
+"cppcheck",
+"doxygen",
+"postgresql",
+"z3",
+"z3test",
+"facebook-clang-plugins"
+]
+
