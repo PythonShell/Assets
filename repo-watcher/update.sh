@@ -32,6 +32,9 @@ then
     cd ~/watch-repo/facebook-clang-plugins &&\
         /usr/bin/git pull github master &&\
         /usr/bin/git push origin master
+    cd ~/watch-repo/cbmc &&\
+        /usr/bin/git pull origin master &&\
+        /usr/bin/git push gitosc master
     cd ~/
 
     sudo pacman -Syu
