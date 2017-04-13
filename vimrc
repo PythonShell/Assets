@@ -42,10 +42,10 @@ endif
 set termencoding=utf-8
 " End set encodings
 
-" 瑙ｅ喅鑿滃崟涔辩爜
+" 解决菜单乱码
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-" 瑙ｅ喅 console 杈撳嚭涔辩爜
+" 解决 console 输出乱码
 language message zh_CN.utf-8
 
 "" Begin my test script
@@ -85,3 +85,9 @@ augroup END
 " print foo(bar)
 
 "" End my test script
+
+" Modify Default GVim's font
+if has("win32")
+    set guifont=Consolas:h12
+endif
+
