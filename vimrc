@@ -1,4 +1,11 @@
-" Support for Bundle Plugin
+" Vimscript file settings ------------------------------------------------ {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+" Support for Bundle Plugin ---------------------------------------------- {{{
 " Do this before using Vundle:
 " $ mkdir -p ~/.vim/bundle && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set nocompatible
@@ -17,6 +24,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
+" }}}
 filetype plugin indent on
 
 syntax on
@@ -29,18 +37,20 @@ set colorcolumn=80
 " Use solarized dark theme
 set background=dark
 colorscheme solarized
+set hlsearch incsearch
 
-" Begin set encodings
+" Set encodings ---------------------------------------------------------- {{{
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,chinese,latin-1
 set fileencoding=gb2312
 if has("win32")
     set fileencoding=chinese
+    set guifont=Consolas:h12
 else
     set fileencoding=utf-8
 endif
 set termencoding=utf-8
-" End set encodings
+" }}}
 
 " 解决菜单乱码
 source $VIMRUNTIME/delmenu.vim
@@ -48,7 +58,10 @@ source $VIMRUNTIME/menu.vim
 " 解决 console 输出乱码
 language message zh_CN.utf-8
 
-"" Begin my test script
+" For SQC File
+"nnoremap <leader>j o * ------------------------------------------------------------------------------<cr> * 修改日期：xxxx-xx-xx<cr> * 修改人员：ckx<cr> * 修改描述：<cr> * 版本信息：<ver><cr> * 专 题 包：<esc>
+
+"" My test script -------------------------------------------------- {{{
 " Set leader and localleader
 let mapleader = "-"
 let maplocalleader = "\\"
@@ -68,6 +81,10 @@ nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 " Quote the selected word
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 vnoremap <leader>' <esc>`<i'<esc>`>a'<esc>
+" Highlight trailing whitespace as error
+highlight TrailWhiteSpaces ctermbg=red guibg=red
+nnoremap <leader>w execute "match TrailWhiteSpaces /\s\+$/"
+nnoremap <leader>W execute "match none"
 
 " Common typos
 iabbrev adn and
@@ -84,10 +101,5 @@ augroup END
 
 " print foo(bar)
 
-"" End my test script
-
-" Modify Default GVim's font
-if has("win32")
-    set guifont=Consolas:h12
-endif
+" }}}
 
