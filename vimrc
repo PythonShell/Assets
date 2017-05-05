@@ -81,8 +81,9 @@ nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 " Quote the selected word
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 vnoremap <leader>' <esc>`<i'<esc>`>a'<esc>
-" Highlight trailing whitespace as error
-highlight TrailWhiteSpaces ctermbg=red guibg=red
+" Highlight tab or trailing whitespace as error
+highlight BadSpaces ctermbg=red guibg=red
+match BadSpaces /\(\t\|\s\+$\)/
 nnoremap <leader>w execute "match TrailWhiteSpaces /\s\+$/"
 nnoremap <leader>W execute "match none"
 
