@@ -83,9 +83,8 @@ vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 vnoremap <leader>' <esc>`<i'<esc>`>a'<esc>
 " Highlight tab or trailing whitespace as error
 highlight BadSpaces ctermbg=red guibg=red
-match BadSpaces /\(\t\|\s\+$\)/
-nnoremap <leader>w execute "match TrailWhiteSpaces /\s\+$/"
-nnoremap <leader>W execute "match none"
+nnoremap <leader>w :match BadSpaces /\v\s+$\|\t/<cr>
+nnoremap <leader>W :match none<cr>
 
 " Common typos
 iabbrev adn and
