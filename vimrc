@@ -19,6 +19,9 @@ Plugin 'racer-rust/vim-racer'
 Plugin 'rust-lang/rust.vim'
 " Solarized Color Theme
 Plugin 'altercation/vim-colors-solarized'
+" Vim Tomorrow Theme
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'chriskempson/base16-vim'
 " Vim markdown support
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -30,13 +33,16 @@ filetype plugin indent on
 syntax on
 set number
 set cursorline
+set ruler
 set tabstop=4 shiftwidth=4 expandtab
 filetype indent on
 " Highlight 80th column
 set colorcolumn=80
 " Use solarized dark theme
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
+" Use tomorrow night theme
+colorscheme tomorrow-night
 set hlsearch incsearch
 
 " Set encodings ---------------------------------------------------------- {{{
@@ -45,7 +51,7 @@ set fileencodings=ucs-bom,utf-8,cp936,chinese,latin-1
 set fileencoding=gb2312
 if has("win32")
     set fileencoding=chinese
-    set guifont=Consolas:h12
+    set guifont=Consolas:h11
 else
     set fileencoding=utf-8
 endif
